@@ -2,3 +2,5 @@ README.md
 Dockerfile
 .gitignore
 .dockerignore
+.env
+.log
