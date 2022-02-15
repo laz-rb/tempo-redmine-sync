@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"strconv"
 )
@@ -26,22 +25,20 @@ func EnvIsReady() bool {
 
 func GetUserActivities() (*UserWork, error) {
 	// Open our jsonFile
-	jsonFile, err := os.Open("./activities.json")
+	jsonFile, err := os.Open("/app/activities.json")
 	if err != nil {
-		log.Println("[ERROR] - Opening JSON file:", err)
-		return nil, err
+		return nil, fmt.Errorf("Opening JSON file: %v", err)
 	}
 	defer jsonFile.Close()
 
 	data, err := ioutil.ReadAll(jsonFile)
 	if err != nil {
-		log.Println("[ERROR] - Parsing JSON to byte:", err)
-		return nil, err
+		return nil, fmt.Errorf("Parsing JSON to byte: %v", err)
 	}
 
 	userActivities := UserWork{}
 	if err := json.Unmarshal(data, &userActivities); err != nil {
-		return nil, fmt.Errorf("[ERROR] - Unmarshal to JSON: %v", err)
+		return nil, fmt.Errorf("Unmarshal to JSON: %v", err)
 	}
 
 	return &userActivities, nil
@@ -50,8 +47,7 @@ func GetUserActivities() (*UserWork, error) {
 func GetIntEnvVar() (int, error) {
 	res, err := strconv.Atoi(os.Getenv("REDMINE_ISSUE_ID"))
 	if err != nil {
-		log.Println("[ERROR] - Parsing env var to int:", err)
-		return 0, err
+		return 0, fmt.Errorf("Parsing env var to int: %v", err)
 	}
 	return res, nil
 }

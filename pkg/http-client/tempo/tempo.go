@@ -20,17 +20,17 @@ func GetMyWorklog() error {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return fmt.Errorf("[ERROR] - Sending HTTP request: %v", err)
+		return fmt.Errorf("Sending HTTP request: %v", err)
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return fmt.Errorf("[ERROR] - Parsing HTTP response: %v", err)
+		return fmt.Errorf("Parsing HTTP response: %v", err)
 	}
 
 	var myWorklog MyWorklog
 	if err := json.Unmarshal(body, &myWorklog); err != nil {
-		return fmt.Errorf("[ERROR] - Parsing response to JSON: %v", err)
+		return fmt.Errorf("Parsing response to JSON: %v", err)
 	}
 
 	log.Println("[INFO] - Tempo autheticated user:", myWorklog.Results[0].Author.DisplayName)
@@ -51,7 +51,7 @@ func PostWorklog(jobID int, act system.Activity) error {
 
 	reqBody, err := json.Marshal(workLogBody)
 	if err != nil {
-		return fmt.Errorf("[ERROR] - Job[%d] Tempo Marshal body request: %v", jobID, err)
+		return fmt.Errorf("Job[%d] Tempo Marshal body request: %v", jobID, err)
 	}
 
 	req, err := http.NewRequest("POST", TEMPO_API_ENDPOINT+"/worklogs", bytes.NewBuffer(reqBody))
@@ -61,13 +61,13 @@ func PostWorklog(jobID int, act system.Activity) error {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return fmt.Errorf("[ERROR] - Job[%d] Tempo Sending HTTP request: %v", jobID, err)
+		return fmt.Errorf("Job[%d] Tempo Sending HTTP request: %v", jobID, err)
 	}
 	defer resp.Body.Close()
 
 	resBody, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return fmt.Errorf("[ERROR] - Job[%d] Tempo Parsing HTTP response: %v", jobID, err)
+		return fmt.Errorf("Job[%d] Tempo Parsing HTTP response: %v", jobID, err)
 	}
 
 	log.Printf("[INFO] - Job[%d] Tempo worklog created with %d status\n", jobID, resp.StatusCode)

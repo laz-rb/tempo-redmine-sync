@@ -1,0 +1,8 @@
+#!/bin/bash
+docker run \
+-e REDMINE_API_TOKEN=$REDMINE_API_TOKEN \
+-e TEMPO_API_TOKEN=$TEMPO_API_TOKEN \
+-e REDMINE_ISSUE_ID=$REDMINE_ISSUE_ID \
+-e JIRA_ACCOUNT_ID=$JIRA_ACCOUNT_ID \
+-v $ACTIVITIES_FILE:/app/activities.json \
+tempo-redmine-sync

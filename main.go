@@ -33,7 +33,12 @@ func main() {
 	}
 
 	//Iterate over user activities and post them to Tempo/Redmine
-	userActivities, _ := system.GetUserActivities()
+	userActivities, err := system.GetUserActivities()
+	if err != nil {
+		log.Println("[ERROR] - Couldn't get activities.json:", err)
+		os.Exit(1)
+	}
+
 	for i, val := range userActivities.Activities {
 		jobID := i
 		activity := val
@@ -45,7 +50,9 @@ func main() {
 		})
 	}
 
-	if err := eg.Wait(); err == nil {
-		log.Println("[INFO] - All jobs ended successfully!")
+	if err := eg.Wait(); err != nil {
+		log.Println("[ERROR] - Posting worklogs:", err)
+		os.Exit(1)
 	}
+	log.Println("[INFO] - All jobs ended successfully!")
 }
