@@ -33,6 +33,7 @@ Tool to write activities once and publish them in Tempo and Redmine. This is int
     | redmine_activity | Int    | The activity type for the Redmine log. Find the right ID in [this](#redmine-activity-ids) list |
 
     * Example of how an activity in the file will looks like
+
     ```json
     {
         "activities": [
@@ -48,6 +49,7 @@ Tool to write activities once and publish them in Tempo and Redmine. This is int
     ```
 3. Build the container, just in case you don't have it already
     `docker build -t tempo-redmine-sync .`
+    
 4. Run the container. You can use either the the `run.ps1` or `run.sh` scripts depending on your shell. DO NOT change the target mount of the volume, the application spects the activities file right on `/app` directory.
 
 ## Reference
