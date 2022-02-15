@@ -23,13 +23,14 @@ Tool to write activities once and publish them in Tempo and Redmine. This is int
     | ACTIVITIES_FILE   | This is the path of your `activities.json` on your local |
 
 2. Fill out the `activities.json`, you can use the [template](./docs/activities.json) on this repo. Every activity on the `activities` array must match these specs
-    Field | Type | Comments
-    --- | --- | --- |
-    date | String | Date of the activity. Must follow this format YYYY-MM-dd
-    description | String | Any string describing your activity. Limited to 255 characters due to Redmine API restrictions
-    spent_time | Float | Hours spent on the activity. This follows the same convention used on Redmine UI. Always use the float notation even when dealing with Ints. Eg. Place `1.0` instead of just `1`
-    jira_issue | String | The Jira issue ID to which will be linked to Tempo worklog
-    redmine_activity | Int | The activity type for the Redmine log. Find the right ID in [this](#redmine-activity-ids) list
+
+    | Field            | Type   | Comments                        |
+    | -----------------|--------|---------------------------------|
+    | date             | String | Date of the activity. Must follow this format YYYY-MM-dd |
+    | description      | String | Any string describing your activity. Limited to 255 characters due to Redmine API restrictions |
+    | spent_time       | Float  | Hours spent on the activity. This follows the same convention used on Redmine UI. Always use the float notation even when dealing with Ints. Eg. Place `1.0` instead of just `1` |
+    | jira_issue       | String | The Jira issue ID to which will be linked to Tempo worklog |
+    | redmine_activity | Int    | The activity type for the Redmine log. Find the right ID in [this](#redmine-activity-ids) list |
 
     * Example of how an activity in the file will looks like
     ```json
