@@ -13,10 +13,12 @@ Tool to write activities once and publish them in Tempo and Redmine. This is int
 
 ## Usage
 1. Set up the next environment variables, if any of those is not present, the tool won't run
-    | Variable          | How to get it?                                         |
-    | ------------------|--------------------------------------------------------|
-    | REDMINE_API_TOKEN | [Link](#how-to-get-my-redmine-api-key)                 |
-    | REDMINE_ISSUE_ID  | [Link](#how-to-get-my-redmine-issue-id)                |
+
+| Variable          | How to get it?                                         |
+| ------------------|--------------------------------------------------------|
+| REDMINE_API_TOKEN | [Link](#how-to-get-my-redmine-api-key)                 |
+| REDMINE_ISSUE_ID  | [Link](#how-to-get-my-redmine-issue-id)                |
+
 2. Fill out the `activities.json`, you can use the [template](./docs/activities.json) on this repo. Every activity on the `activities` array must match these specs
     Field | Type | Comments
     --- | --- | --- |
