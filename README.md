@@ -81,19 +81,20 @@ Tempo API official usage https://apidocs.tempo.io/
     <img src="./docs/issue-id.png">
 
 ### Redmine Activity IDs
-ID | Description
---- | --- |
-10 | Meeting
-14 | Research
-50 | IT Support
-8 | Design
-9 | Development
-11 | Test Case Design
-12 | Testing
-10 | Meeting
-13 | Reporting
-14 | Research
-50 | IT Support
-48 | Vacation/PTO/Holiday
-142 | Comp Time
-351 | Maintenance
+
+| ID | Description |
+| ----|------------|
+| 10  | Meeting |
+| 14  | Research |
+| 50  | IT Support |
+| 8   | Design |
+| 9   | Development |
+| 11  | Test Case Design |
+| 12  | Testing |
+| 10  | Meeting |
+| 13  | Reporting |
+| 14  | Research |
+| 50  | IT Support |
+| 48  | Vacation/PTO/Holiday |
+| 142 | Comp Time |
+| 351 | Maintenance |
