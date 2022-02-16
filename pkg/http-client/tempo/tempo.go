@@ -72,7 +72,7 @@ func PostWorklog(jobID int, act system.Activity) error {
 
 	log.Printf("[INFO] - Job[%d] Tempo worklog created with %d status\n", jobID, resp.StatusCode)
 	if resp.StatusCode != 200 {
-		log.Printf("[INFO] - Job[%d] Redmine POST response: %s", jobID, resBody)
+		log.Printf("[INFO] - Job[%d] Tempo POST response: %s", jobID, resBody)
 	}
 
 	return nil
