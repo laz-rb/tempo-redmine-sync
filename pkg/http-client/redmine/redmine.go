@@ -39,7 +39,7 @@ func GetMyAccount() error {
 }
 
 func PostActivity(jobID int, act system.Activity) error {
-	redmineIssueID, _ := system.GetIntEnvVar()
+	redmineIssueID, _ := system.GetIntEnvVar("REDMINE_ISSUE_ID")
 	timeEntry := &TimeEntryWrp{
 		TimeEntry: TimeEntry{
 			IssueID:    redmineIssueID,

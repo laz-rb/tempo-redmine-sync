@@ -44,8 +44,8 @@ func GetUserActivities() (*UserWork, error) {
 	return &userActivities, nil
 }
 
-func GetIntEnvVar() (int, error) {
-	res, err := strconv.Atoi(os.Getenv("REDMINE_ISSUE_ID"))
+func GetIntEnvVar(envVar string) (int, error) {
+	res, err := strconv.Atoi(os.Getenv(envVar))
 	if err != nil {
 		return 0, fmt.Errorf("Parsing env var to int: %v", err)
 	}
