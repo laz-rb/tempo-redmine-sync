@@ -56,6 +56,10 @@ Tool to write activities once and publish them in Tempo and Redmine. This is int
 
 ## Reference
 
+## Troubleshotting
+**429 Too Many Requests - Tempo**
+This is a restriction on Tempo API, seems like 10 simultaneous requests are allowed. When this happens, try running the job again after some time using the `POST_TO=tempo` env var
+
 ### Redmine API Docs
 Redmine API offical usage https://www.redmine.org/projects/redmine/wiki/Rest_api
 
