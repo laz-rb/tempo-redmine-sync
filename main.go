@@ -42,12 +42,17 @@ func main() {
 	for i, val := range userActivities.Activities {
 		jobID := i
 		activity := val
-		eg.Go(func() error {
-			return redmine.PostActivity(jobID, activity)
-		})
-		eg.Go(func() error {
-			return tempo.PostWorklog(jobID, activity)
-		})
+		log.Printf("Job[%d]: %s", jobID, val.Description)
+		if os.Getenv("POST_TO") == "ALL" || os.Getenv("POST_TO") == "REDMINE" {
+			eg.Go(func() error {
+				return redmine.PostActivity(jobID, activity)
+			})
+		}
+		if os.Getenv("POST_TO") == "ALL" || os.Getenv("POST_TO") == "TEMPO" {
+			eg.Go(func() error {
+				return tempo.PostWorklog(jobID, activity)
+			})
+		}
 	}
 
 	if err := eg.Wait(); err != nil {

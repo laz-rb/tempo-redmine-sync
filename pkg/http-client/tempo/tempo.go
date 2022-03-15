@@ -11,7 +11,7 @@ import (
 	"tempo-redmine-sync/pkg/system"
 )
 
-const TEMPO_API_ENDPOINT = "https://api.tempo.io/core/3"
+var TEMPO_API_ENDPOINT = os.Getenv("TEMPO_API_ENDPOINT")
 
 func GetMyWorklog() error {
 	req, err := http.NewRequest("GET", TEMPO_API_ENDPOINT+"/worklogs/user/"+os.Getenv("JIRA_ACCOUNT_ID")+"?limit=1", nil)
@@ -70,9 +70,9 @@ func PostWorklog(jobID int, act system.Activity) error {
 		return fmt.Errorf("Job[%d] Tempo Parsing HTTP response: %v", jobID, err)
 	}
 
-	log.Printf("[INFO] - Job[%d] Tempo worklog created with %d status\n", jobID, resp.StatusCode)
+	log.Printf("[INFO] - Job[%d] Tempo status %d", jobID, resp.StatusCode)
 	if resp.StatusCode != 200 {
-		log.Printf("[INFO] - Job[%d] Tempo POST response: %s", jobID, resBody)
+		log.Printf("[INFO] - Job[%d] Tempo response: %s", jobID, resBody)
 	}
 
 	return nil

@@ -15,13 +15,16 @@ Tool to write activities once and publish them in Tempo and Redmine. This is int
 
 1. Set up the next environment variables, if any of those is not present, the tool won't run
 
-    | Variable          | How to get it?                                           |
-    | ------------------|----------------------------------------------------------|
-    | REDMINE_API_TOKEN | [Link](#how-to-get-my-redmine-api-key)                   |
-    | REDMINE_ISSUE_ID  | [Link](#how-to-get-my-redmine-issue-id)                  |
-    | TEMPO_API_TOKEN   | [Link](#how-to-generate-my-tempo-api-key)                |
-    | JIRA_ACCOUNT_ID   | [Link](#how-to-get-my-jira-account-id)                   |
-    | ACTIVITIES_FILE   | This is the path of your `activities.json` on your local |
+    | Variable           | How to get it?                                           |
+    | -------------------|----------------------------------------------------------|
+    | REDMINE_API_TOKEN  | [Link](#how-to-get-my-redmine-api-key)                   |
+    | REDMINE_ISSUE_ID   | [Link](#how-to-get-my-redmine-issue-id)                  |
+    | TEMPO_API_TOKEN    | [Link](#how-to-generate-my-tempo-api-key)                |
+    | JIRA_ACCOUNT_ID    | [Link](#how-to-get-my-jira-account-id)                   |
+    | ACTIVITIES_FILE    | This is the path of your `activities.json` on your local |
+    | POST_TO            | Target to post. Choose between `ALL`, `REDMINE`, `TEMPO` |
+    | TEMPO_API_ENDPOINT | Tempo API endpoint                                       |
+    | REDMINE_ENDPOINT   | Redmine API endpoint                                     |
 
 2. Fill out the `activities.json`, you can use the [template](./docs/activities.json) on this repo. Every activity on the `activities` array must match these specs
 

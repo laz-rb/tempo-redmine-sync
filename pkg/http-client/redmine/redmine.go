@@ -11,7 +11,7 @@ import (
 	"tempo-redmine-sync/pkg/system"
 )
 
-const REDMINE_ENDPOINT = "https://dev.unosquare.com/redmine"
+var REDMINE_ENDPOINT = os.Getenv("REDMINE_ENDPOINT")
 
 func GetMyAccount() error {
 	req, err := http.NewRequest("GET", REDMINE_ENDPOINT+"/my/account.json", nil)
@@ -71,9 +71,9 @@ func PostActivity(jobID int, act system.Activity) error {
 		return fmt.Errorf("Job[%d] Redmine Parsing HTTP response: %v", jobID, err)
 	}
 
-	log.Printf("[INFO] - Job[%d] Redmine activity created with %d status\n", jobID, resp.StatusCode)
+	log.Printf("[INFO] - Job[%d] Redmine status: %d", jobID, resp.StatusCode)
 	if resp.StatusCode != 201 {
-		log.Printf("[INFO] - Job[%d] Redmine POST response: %s", jobID, resBody)
+		log.Printf("[INFO] - Job[%d] Redmine response: %s", jobID, resBody)
 	}
 
 	return nil
