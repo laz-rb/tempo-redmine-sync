@@ -11,7 +11,7 @@ import (
 	"tempo-redmine-sync/pkg/system"
 )
 
-const REDMINE_ENDPOINT = "https://dev.unosquare.com/redmine"
+var REDMINE_ENDPOINT = os.Getenv("REDMINE_ENDPOINT")
 
 func GetMyAccount() error {
 	req, err := http.NewRequest("GET", REDMINE_ENDPOINT+"/my/account.json", nil)
