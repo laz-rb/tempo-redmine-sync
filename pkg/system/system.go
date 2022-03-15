@@ -10,7 +10,7 @@ import (
 
 func EnvIsReady() bool {
 	result := false
-	envVars := [...]string{"REDMINE_API_TOKEN", "TEMPO_API_TOKEN", "REDMINE_ISSUE_ID", "JIRA_ACCOUNT_ID"}
+	envVars := [...]string{"REDMINE_API_TOKEN", "TEMPO_API_TOKEN", "REDMINE_ISSUE_ID", "JIRA_ACCOUNT_ID", "POST_TO"}
 	for _, val := range envVars {
 		if _, res := os.LookupEnv(val); res {
 			result = true

@@ -70,9 +70,9 @@ func PostWorklog(jobID int, act system.Activity) error {
 		return fmt.Errorf("Job[%d] Tempo Parsing HTTP response: %v", jobID, err)
 	}
 
-	log.Printf("[INFO] - Job[%d] Tempo worklog created with %d status\n", jobID, resp.StatusCode)
+	log.Printf("[INFO] - Job[%d] Tempo status %d", jobID, resp.StatusCode)
 	if resp.StatusCode != 200 {
-		log.Printf("[INFO] - Job[%d] Tempo POST response: %s", jobID, resBody)
+		log.Printf("[INFO] - Job[%d] Tempo response: %s", jobID, resBody)
 	}
 
 	return nil

@@ -71,9 +71,9 @@ func PostActivity(jobID int, act system.Activity) error {
 		return fmt.Errorf("Job[%d] Redmine Parsing HTTP response: %v", jobID, err)
 	}
 
-	log.Printf("[INFO] - Job[%d] Redmine activity created with %d status\n", jobID, resp.StatusCode)
+	log.Printf("[INFO] - Job[%d] Redmine status: %d", jobID, resp.StatusCode)
 	if resp.StatusCode != 201 {
-		log.Printf("[INFO] - Job[%d] Redmine POST response: %s", jobID, resBody)
+		log.Printf("[INFO] - Job[%d] Redmine response: %s", jobID, resBody)
 	}
 
 	return nil
