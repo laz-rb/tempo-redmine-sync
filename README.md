@@ -70,11 +70,11 @@ Redmine API offical usage https://www.redmine.org/projects/redmine/wiki/Rest_api
 Tempo API official usage https://apidocs.tempo.io/
 
 ### How To Get My Jira Account ID?
-- Go to https://<org>.atlassian.net/jira/your-work -> Then click on your profile picture -> The chose "Profile"
+- Go to https://`<org>`.atlassian.net/jira/your-work -> Then click on your profile picture -> The chose "Profile"
 - Your account ID will be the last ID on the URL
 
 ### How To Generate My Tempo API Key?
-1. Go to https://<org>.atlassian.net/plugins/servlet/ac/io.tempo.jira/tempo-app#!/configuration/api-integration
+1. Go to https://`<org>`.atlassian.net/plugins/servlet/ac/io.tempo.jira/tempo-app#!/configuration/api-integration
 2. Select "New Token"
     - Give a name to your token
     - Select custom access and chose "View" and "Manage Worklogs"
@@ -82,11 +82,11 @@ Tempo API official usage https://apidocs.tempo.io/
     - Copy your token and save it in a secure place
 
 ### How To Get My Redmine API Key?
-1. Go to https://<redmine-server>/my/account
+1. Go to https://`<redmine-server>`/my/account
 2. Copy your token from the "API access key" section at the right of the screen
 
 ### How To Get My Redmine Issue ID?
-1. Go to https://<redmine-server>/my/page
+1. Go to https://`<redmine-server>`/my/page
 2. Your Issue ID is  at the right side of the project name.
 
 ### Redmine Activity IDs examples
